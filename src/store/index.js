@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     tarefas: [],
+    tarefa: {},
   },
   getters: {
     listaTarefas(state) {
@@ -21,7 +22,7 @@ export default new Vuex.Store({
     },
     editarTarefa(state, payload) {
       state.tarefas[payload.index] = payload;
-    }
+    },
   },
   actions: {
     salvarTarefa(context, payload) {
@@ -32,7 +33,7 @@ export default new Vuex.Store({
     },
     editarTarefa(context, payload) {
       context.commit('editarTarefa', payload);
-    }
+    },
   },
   modules: {
   }

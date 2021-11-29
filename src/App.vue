@@ -12,7 +12,7 @@
   --text-input: #fefefe;
   --text: #0d0c22;
   --shape: #ffffff;
-  --red: #e52e4d;
+  --color-danger: #f8d7da;
   --green: #33cc95;
 }
 
