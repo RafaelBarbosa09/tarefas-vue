@@ -2,9 +2,7 @@
   <div>
     <p>{{ tarefa.id }}</p>
     <p>{{ tarefa.nome }}</p>
-    <p>{{ tarefa.data }}</p>
     <p>{{ tarefa.tipo }}</p>
-    <p>{{ tarefa.descricao }}</p>
     <div class="botoes">
       <button
           class="btnExcluir"
@@ -25,12 +23,22 @@ export default {
   name: "Tarefa",
   props: {
     tarefa: Object,
-    excluirTarefa: Function
   },
   data() {
     return {
       link: '/about/'
     };
+  },
+  methods: {
+    excluirTarefa(id) {
+      const index = this.tarefas.findIndex(tarefa => tarefa.id === id);
+      this.$store.dispatch('excluirTarefa', index);
+    },
+  },
+  computed: {
+    tarefas() {
+      return this.$store.getters.listaTarefas;
+    }
   }
 }
 </script>
