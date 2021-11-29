@@ -1,20 +1,52 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Tarefas</router-link> |
-      <router-link to="/cadastro">Cadastro</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+:root {
+  --color-primary: #fd507e;
+  --color-secundary: #ea4c89;
+  --title: #6e6d7a;
+  --text-input: #fefefe;
+  --text: #0d0c22;
+  --shape: #ffffff;
+  --red: #e52e4d;
+  --green: #33cc95;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+  @media(max-width: 1080px) {
+    html {
+      font-size: 93.75%;
+    }
+  }
+
+  @media(max-width: 720px) {
+    html {
+      font-size: 87.5%;
+    }
+  }
+
+body {
+  background: #F4F3EF;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+}
+
+body, input, textArea, button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: bold;
 }
 
 #nav {
@@ -22,8 +54,7 @@
 }
 
 #nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  color: var(--shape);
 }
 
 #nav a.router-link-exact-active {

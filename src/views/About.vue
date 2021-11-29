@@ -1,56 +1,36 @@
 <template>
   <div class="about">
-    {{$store.getters.listaTarefas}}
-    <form>
-      <input
-        type="text"
-        v-model="nome">
+    <Header :titulo="Detalhes" />
+    <div id="nav">
+      <router-link to="/">Home</router-link>
+    </div>
 
-      <select v-model="tipo">
-        <option value="baixa">Baixa</option>
-        <option value="media">Média</option>
-        <option value="alta">Alta</option>
-      </select>
+    {{id}}
 
-      <textArea v-model="descricao"></textArea>
-
-      <button @click.prevent.stop="editarTarefa">salvar</button>
-    </form>
-
-    <p>{{ tarefa.id }}</p>
-    <p>{{ tarefa.nome }}</p>
-    <p>{{ tarefa.data }}</p>
-    <p>{{ tarefa.tipo }}</p>
-    <p>{{ tarefa.descricao }}</p>
+<!--    <p>{{ tarefa.nome }}</p>-->
+<!--    <p>{{ tarefa.data }}</p>-->
+<!--    <p>{{ tarefa.tipo }}</p>-->
+<!--    <p>{{ tarefa.descricao }}</p>-->
   </div>
 </template>
 
 <script>
+import Header from "@/components/Header";
 export default {
   name: "About",
+  components: {Header},
   data() {
     return {
-      id: this.$route.params.id,
-      nome: '',
-      tipo: '',
-      descricao: '',
-      tarefa: {},
-    }
-  },
-  computed: {
-    tarefas() {
-      return this.$store.getters.listaTarefas;
+      id: this.$route.params.id
     }
   },
   methods: {
     buscaTarefa: function(id) {
       console.log('methods -> ' + id);
       console.log('tarefas -> ' + this.tarefas);
-      this.tarefa = this.tarefas.find(tarefa => tarefa.id === id);
+
+      // return lista.find(tarefa => tarefa.id === id);
     }
   },
-  created() {
-    this.buscaTarefa(this.id);
-  }
 }
 </script>

@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    tarefas: []
+    tarefas: [],
   },
   getters: {
     listaTarefas(state) {
@@ -18,6 +18,9 @@ export default new Vuex.Store({
     },
     excluirTarefa(state, payload) {
       state.tarefas.splice(payload, 1);
+    },
+    editarTarefa(state, payload) {
+      state.tarefas[payload.index] = payload;
     }
   },
   actions: {
@@ -26,6 +29,9 @@ export default new Vuex.Store({
     },
     excluirTarefa(context, payload) {
       context.commit('excluirTarefa', payload);
+    },
+    editarTarefa(context, payload) {
+      context.commit('editarTarefa', payload);
     }
   },
   modules: {
